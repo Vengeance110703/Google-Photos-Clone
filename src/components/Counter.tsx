@@ -1,11 +1,15 @@
-import { useAppDispatch, useAppSelector } from "../../state/hooks"
-import { decrement, increment, incrementAsync, incrementByAmount } from "./counterSlice"
-
+import { useAppDispatch, useAppSelector } from "@/redux_essentials/hooks"
+import {
+  decrement,
+  increment,
+  incrementAsync,
+  incrementByAmount,
+} from "@/slices/counterSlice"
 
 type Props = {}
 
 const Counter = (props: Props) => {
-  const count = useAppSelector((state) => state.counter.value) 
+  const count = useAppSelector(state => state.counter.value)
   const dispatch = useAppDispatch()
   return (
     <div>

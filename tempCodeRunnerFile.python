@@ -1,0 +1,49 @@
+import threading
+import random
+import time
+
+queue = []
+
+queueIsAvailable = threading.Semaphore(5)  
+dataIsAvailable = threading.Semaphore(0)  
+mutex = threading.Lock()  
+
+
+def producer():
+    nums = range(5)  
+    global queue
+    while True:
+        num = random.choice(nums)
+
+        queueIsAvailable.acquire()
+
+        mutex.acquire()
+        queue.append(num)
+        print("Produced", num, "\tBuffer:", queue)
+        mutex.release()
+
+        dataIsAvailable.release()
+
+        time.sleep(random.uniform(0, 3))
+
+
+def consumer():
+    global queue
+    while True:
+        dataIsAvailable.acquire()
+
+        mutex.acquire()
+        num = queue.pop(0)
+        print("Consumed", num, "\tBuffer:", queue)
+        mutex.release()
+
+        queueIsAvailable.release()
+
+        time.sleep(random.uniform(0, 3))
+
+
+producerThread = threading.Thread(target=producer)
+consumerThread = threading.Thread(target=consumer)
+
+producerThread.start()
+consumerThread.start()
