@@ -1,16 +1,8 @@
 import { useAppSelector, useAppDispatch } from "@/redux_essentials/hooks"
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-} from "../ui/drawer"
+import { Drawer, DrawerContent, DrawerHeader } from "../ui/drawer"
 import { updateGeneralSlice } from "@/slices/generalSlice"
 import { ScrollArea } from "../ui/scroll-area"
-import { ImagePlusIcon, ListXIcon, StarIcon, XIcon } from "lucide-react"
+import { ImagePlusIcon, StarIcon } from "lucide-react"
 import { Button } from "../ui/button"
 import { useState } from "react"
 import { Photo } from "@/types/alltypes"
@@ -18,11 +10,8 @@ import { Checkbox } from "../ui/checkbox"
 import NavbarButton from "./NavbarButton"
 import { updatePhoto } from "@/api/databse"
 import { updatePhotos } from "@/slices/photosSlice"
-import Photos from "@/routes/Photos"
 
-type Props = {}
-
-const AlbumPhotosSelect = (props: Props) => {
+const AlbumPhotosSelect = () => {
   const general = useAppSelector(state => state.general)
   const { addPhotosDrawer, selectedAlbum } = useAppSelector(
     state => state.general

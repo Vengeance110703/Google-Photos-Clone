@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "@/redux_essentials/hooks"
-import { ImageMinusIcon, StarIcon, XIcon } from "lucide-react"
+import { StarIcon, XIcon } from "lucide-react"
 import { Button } from "../ui/button"
 import { updateGeneralSlice } from "@/slices/generalSlice"
 import { updatePhotos } from "@/slices/photosSlice"

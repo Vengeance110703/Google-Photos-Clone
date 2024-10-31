@@ -8,9 +8,7 @@ import { Photo } from "@/types/alltypes"
 import { updateAlbums } from "@/slices/albumsSlice"
 import { updateAlbumsByUser, updatePhoto } from "@/api/databse"
 
-type Props = {}
-
-const SelectedNavbarAlbums = (props: Props) => {
+const SelectedNavbarAlbums = () => {
   const general = useAppSelector(state => state.general)
   const { selectionAlbum } = useAppSelector(state => state.general)
   const photos = useAppSelector(state => state.photos.value)

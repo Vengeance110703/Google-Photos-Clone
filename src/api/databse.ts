@@ -1,6 +1,5 @@
 import { db, storage } from "@/config/firebase"
 import { Album, Photo } from "@/types/alltypes"
-import { constants } from "buffer"
 import {
   addDoc,
   collection,
@@ -8,7 +7,6 @@ import {
   doc,
   getDocs,
   query,
-  setDoc,
   updateDoc,
   where,
 } from "firebase/firestore"
